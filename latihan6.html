@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body onload="resetall()">
+    <script type="text/javascript">
+    function resetall(){
+      document.getElementById('hasil').value = "";
+    }
+      function fungsipertama(x){
+        document.getElementById('hasil').value = "";
+        var saldo = 0.0;
+        var bunga = 0.0;
+        var waktu = 0.0;
+        var bunga2 = parseFloat(document.testing.bunga.value);
+        var saldo2 = parseFloat(document.testing.saldo.value);
+        var wkt = parseFloat(document.testing.wkt.value);
+
+        if(isNaN(bunga2) || isNaN(saldo2) || isNaN(wkt)){
+          alert("cek inputan Anda, harus ANGKA!");
+        }else{
+          var valueee = [];
+          for (var i = 1; i <= wkt; i++) {
+              saldo = saldo2;
+              bunga = (bunga2*saldo2/100);
+              saldo2 += bunga;
+              var valueee = "saldo bulan ke-" +i +" adalah " + parseFloat(saldo);
+              var x = document.getElementById('hasil');
+              x.value += valueee +"\n";
+          }
+        }
+      }
+    </script>
+    <form name="testing" method="post">
+      <h2>PERHITUNGAN BUNGA</h2>
+      <pre>
+        Data input :
+        Saldo      <input autofocus type="text" name="saldo" size="10" value="">
+        Bunga      <input type="text" name="bunga" size="7" value="">%
+        Waktu      <input type="text" name="wkt" size="3" value="">Bulan
+
+        <input type="button" name="submit" onclick="return fungsipertama(this)" value="Submit">
+        <input type="reset" name="reset" value="Reset">
+
+        Hasil Perhitungan :<br/>
+        <textarea disabled name="hasil" id="hasil" rows="8" cols="80"></textarea>
+      </pre>
+    </form>
+    <SCRIPT language="Javascript">
+    window.status="Welcome";
+    // window.alert=("Selamat Datang");
+    angka=window.prompt("Inputkan Angka ?",0);
+    var angkabaru = parseFloat(angka);
+    if( angkabaru == null || isNaN(angkabaru)){
+      document.write("Angka favorit Anda adalah =<strong> tidak ada</strong><br>");
+    }else {
+      document.write("Angka favorit Anda adalah =<strong>" +angkabaru+"</strong><br>");
+    }
+    tampung=window.confirm("jenis kelamin anda Wanita ?");
+    if(tampung)
+    {
+      document.write("Boleh Kenalan donk");
+    }
+    else
+    {
+      document.write("Ok dech");
+    }
+    // window.open();
+    window.close();
+</SCRIPT>
+  </body>
+</html>

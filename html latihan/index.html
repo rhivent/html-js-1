@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title> TEST
+    </title>
+    <style>
+        canvas{
+            border:1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas">
+    </canvas>
+
+    <!--<canvas width=300 height=200>Your browser does not support canvas.</canvas>-->
+<script async>
+var checkoutDate = new Date();
+var options = {weekday :'long',year :'numeric',month:'long',day:'numeric'};
+console.log(checkoutDate.toLocaleDateString(["zh","en-US"],options));
+
+if(typeof window.console !== 'undefined'){
+    console.log("Halo dunia");
+}
+
+if (!window.console){
+    console = {log : function() {}};
+}
+var elms = document.getElementsByTagName("*");
+console.time('Loop time');
+for (var i = 0; i < 5000; i++){
+    for(var j = 0, length = elms.length; j< length; j++){
+            //bothing to do....
+    }
+}
+console.timeEnd('Loop time');
+console.group('test');
+
+
+console.time('response in');
+    alert('Click to continue');
+console.timeEnd('response in');
+console.time('response in');
+    alert('One More Time');
+console.timeEnd('response in');
+console.info('test1');
+console.error('test1');
+console.warn('test1');
+console.timeStamp('msg');
+function sec(){
+    first();
+}
+
+function first(){
+    console.trace();
+}
+
+sec();
+
+console.groupEnd('test');
+/*  
+  var ctx = document.getElementById("myCanvas").getContext("2d");
+    // now we can refer to the canvas's 2D layer context using `ctx`
+    ctx.fillStyle = "#666";
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height); // x, y, width, height
+    ctx.fillStyle = "#fff";
+    ctx.fillText("My grey canvas with some white text", 24, 32); // text, x,y
+
+*/
+
+    window.onload = init; // call init() once the window is completely loaded
+    
+    function init(){
+        //#1 - get reference to class="myCanvas1"
+       // var canvas1 = document.getElementsByClassName("myCanvas");
+        var canvas1 = document.getElementById("myCanvas");
+
+        //#2 - get reference to the drawing context and drawing API
+        var zzz = canvas1.getContext("2d");
+
+        //#3 - all fill operations are now in red
+        zzz.fillStyle = "red";
+        
+        //#4 - fill a 100x100 rectangle at x=0,y=0
+        zzz.fillRect(0,0,100,100);
+
+        //#5 - all fill operations are now in green
+        zzz.fillStyle = "green";
+
+        //#6 - fill a 50x50 rectangle at x=25,y=25
+        zzz.fillRect(25,25,50,50);
+        console.log(new Date(0));
+
+        var e = new Error('foo');
+        console.log(e.stack);
+
+       // console.clear();
+    }    
+
+    var personArr = [
+                        {
+                        "personId": 123,
+                        "name": "Jhon",
+                        "city": "Melbourne",
+                        "phoneNo": "1234567890"
+                        },
+                        {
+                        "personId": 124,
+                        "name": "Amelia",
+                        "city": "Sydney",
+                        "phoneNo": "1234567890"
+                        },
+                        {
+                        "personId": 125,
+                        "name": "Emily",
+                        "city": "Perth",
+                        "phoneNo": "1234567890"
+                        },
+                        {
+                        "personId": 126,
+                        "name": "Abraham",
+                        "city": "Perth",
+                        "phoneNo": "1234567890"
+                        }
+                    ];
+        console.table(personArr, ['name', 'personId']);
+        console.count(window);
+        console.count(document);
+        console.count(console);
+        console.count(console.__proto__);
+        console.count(console.constructor.prototype);
+        console.count(console.__proto__.constructor.prototype);
+        console.count(Object.getPrototypeOf(console));
+        console.count(null);
+
+function foo(param){
+  console.log('is undefined?',param ===undefined);
+}
+
+foo('a');
+foo();
+
+//console.clear();
+
+
+var myObj = {
+    "foo":{
+        "bar" : "data"    
+    }
+};
+console.dir(myObj);
+console.dirxml(document);
+
+console.assert(false,"Testing assertion...",NaN,undefined,Object);
+
+function sum(...arguments){
+    if (arguments.length === 1){
+        const [firstArg] = arguments
+        if(firstArg instanceof Array)
+            return sum(...firstArg)    
+    }
+    return arguments.reduce((a,b) => a+b)
+}
+
+console.log(sum(1,2,3));
+console.log(sum([1,2,3]));
+console.log(sum(4));
+
+console.log(2 instanceof Number);
+console.log([] instanceof Object, [] instanceof Array);
+console.log([].constructor === Object, [].constructor === Array);
+function isNumber(value){
+    if(value === null || value === undefined) return false
+    return value.constructor === Number
+}
+
+console.log(isNumber(null), isNumber(undefined));
+console.log(isNumber('abc'), isNumber([]),isNumber(()=>1));
+console.log(isNumber(0), isNumber(Number('10.1')),isNumber(NaN));
+
+Object.prototype.toString.call(/foo/);
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body bgcolor="grey">
+    <button type="button" onclick="changeText(this)" name="button1">Test Clicking!</button>
+
+    <button type="button" onclick="hitungABC()" name="button2">Calculasi Persamaan Kuadrat</button>
+    <script type="text/javascript">
+    function hitungABC(){
+      //input data a,b,c dan simpan di variabel x,y,z
+
+      var x = parseInt(prompt("Ketikkan nilai a = \nFormat persamaan kuadrat : ax2 + bx +c = 0"));
+      var y = parseInt(prompt("Ketikkan nilai b = \nFormat persamaan kuadrat : ax2 + bx +c = 0"));
+      var z = parseInt(prompt("Ketikkan nilai c = \nFormat persamaan kuadrat : ax2 + bx +c = 0"));
+
+      var d = (y*y-4*x*z); //utk menghitung determinan
+
+      var dakar = Math.sqrt(d); // menghitung akar determinan
+
+      function kuadrat1(a,b,c){ //menghitung nilai x1
+        var x = (-b+dakar)/(2*a);
+        return (x);
+      }
+
+      function kuadrat2(a,b,c){ //menghitung nilai x2
+        var x = (-b-dakar)/(2*a);
+        return (x);
+      }
+
+      function tanday(b){ //tanda positif negatif variabel y
+        if(y >= 0 ){
+          tanday = "+";
+          return (tanday);
+        }else {
+          tanday = "";
+          return (tanday);
+        }
+      }
+
+      function tandaz(c){ //tanda positif negatif variabel z
+        if(z >= 0 ){
+          tandaz = "+";
+          return (tandaz);
+        }else {
+          tandaz = "";
+          return (tandaz);
+        }
+      }
+
+      //variabel utk kebutuhan tampilan saja (superscript and subscript)
+
+      var pangkat ="2";
+      var subscript1 = "1";
+      var subscript2 = "2";
+
+      //memanggil function utk menghitung nilai x1 dan x2
+      var p = kuadrat1(x,y,z);
+      var q = kuadrat2(x,y,z);
+
+      //menampilkan format umum persamaan kuadrat
+      document.write("Format umum persamaan kuadrat : ax" + (pangkat.sup()) + "+ bx + c = 0" + "<br>" + "<hr>");
+
+      //menampilkan function tanda positif-negativ tampilan y dan z
+      var tanday = tanday(y);
+      var tandaz = tandaz(z);
+
+      //Menuliskan pers. kuadrat, jk nilai a = 1 atau a = -1 maka "1" nya tidak ditulis
+
+      if(x==1){
+        document.write("Pers. Kuadrat yang dinyatakan:x"+(pangkat.sup())+tanday+y+"x"+tandaz+z+"=0"+"<br/>");
+      }else if (x == -1) {
+        document.write("Pers. Kuadrat yang dinyatakan:-x"+(pangkat.sup())+tanday+y+"x"+tandaz+z+"=0"+"<br/>");
+      }else {
+        document.write("Pers. Kuadrat yang dinyatakan:"+x+"x"+(pangkat.sup())+tanday+y+"x"+tandaz+z+"=0"+"<br/>");
+      }
+
+      //diproses hanya jika nilai determinan tidak negativ
+      if(d<0){
+        document.write("Nilai x"+(subscript1.sub())+" adalah:"+p+"<br/>");
+        document.write("Nilai x"+(subscript2.sub())+" adalah:"+q);
+      }else if (d==0) {
+        document.write("Nilai x"+(subscript1.sub())+ " dan x"+(subscript2.sub()) +" adalah sama yaitu: "+p);
+      }else {
+        document.write("Maaf, nilai x1 dan x2 tidak dapat dihitung");
+      }
+    }
+
+    function changeText(id){
+      id.innerHTML = "You Clicked!";
+    }
+    </script>
+  </body>
+</html>

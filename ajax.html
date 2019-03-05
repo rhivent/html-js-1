@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<div class="" id="loadme">
+  &nbsp;
+</div>
+
+<button onclick="LoadMe()" name="button">Ajax my page</button>
+    <script type="text/javascript" async>
+    window.onload;
+      function newAjax(){
+        var ajax;
+        if(window.XMLHttpRequest){
+          ajax = new XMLHttpRequest();
+        }else {
+          ajax = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        return ajax;
+      }
+
+      function LoadMe(){
+        var ajaxHandler = newAjax();
+        ajaxHandler.onreadystatechange = function(){
+          if (ajaxHandler.readyState == 4 && ajaxHandler.status == 200){
+            document.getElementById('loadme').innerHTML = ajaxHandler.responseText;
+          }
+        }
+        ajaxHandler.open("POST","page.html",true); //ajaxHandlername.open(method,url,ansyncronous) always set true for async
+        ajaxHandler.send();
+      }
+    </script>
+  </body>
+</html>

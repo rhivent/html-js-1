@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!-- <canvas id="canvas" width="300" height="300"></canvas> -->
+    <script type="text/javascript">
+      var canvas;
+      var ctx;
+
+      function createCanvas(){
+        const canvas = document.createElement("canvas");
+        canvas.style.position = "absolute";
+        canvas.style.left = "80px";
+        canvas.style.top = "80px";
+        canvas.style.width = "300px";
+        canvas.style.height = "300px";
+        canvas.style.zIndex = 1;
+        canvas.style.backgroundColor = "darkgrey";
+        document.body.appendChild(canvas);
+        return canvas;
+      }
+
+      function sizeCanvas(){
+        if(canvas === undefined){
+          canvas = createCanvas();
+          ctx = canvas.getContext("2d");
+        }
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+      }
+
+      function removeCanvas(){
+        if(canvas !== undefined){
+          removeEventListener("resize",sizeCanvas);
+          document.body.removeChild(canvas);
+          ctx = undefined;
+          canvas = undefined;
+        }
+      }
+
+      addEventListener("resize",sizeCanvas);
+      sizeCanvas();
+
+      var offsetX,offsetY;
+
+      function reOffset(){
+        var BB=canvas.getBoundingClientRect();
+        offsetX=BB.left;
+        offsetY=BB.top;
+      }
+
+      window.onscroll = function(e){reOffset();}
+      window.onresize = function(e){reOffset();}
+
+      function handleMouseUp(e){
+        mouseX = parseInt(e.clientX-offsetX);
+        mouseY = parseInt(e.clientY-offsetY);
+      }
+    </script>
+  </body>
+</html>

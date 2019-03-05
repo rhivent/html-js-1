@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      var A = 12;  //A = 1100b
+      var B = 10;  //B = 1010b (angka 10)
+
+      var C = A & B; // C = 1000b (angka 8)
+      C = A<<2; // C = 0011 0000b (angka 48)
+      D = A >> 1; // D = 0110b (angka6)
+      console.log(C);
+      console.log(D);
+    </script>
+
+    <script language="JavaScript">
+    // function test(){alert(document.fform.pilihoperasi.value);}
+
+    function operasi()
+    {
+      var selectOption = document.fform.pilihoperasi.value;
+      var bil1 = parseFloat(document.fform.bilangan1.value);
+      var bil2 = parseFloat(document.fform.bilangan2.value);
+
+      if( selectOption == "jumlah"){
+        if (isNaN (bil1))
+          bil1=0.0;
+        if (isNaN (bil2))
+          bil2=0.0;
+        var hasil = bil1 + bil2;
+        alert ("Hasil Penjumlahan = " + hasil);
+      }else if (selectOption == "kurang") {
+        if (isNaN (bil1))
+          bil1=0.0;
+        if (isNaN (bil2))
+          bil2=0.0;
+        var hasil = bil1 - bil2;
+        alert ("Hasil Pengurangan = " + hasil);
+      }else if (selectOption == "kali") {
+        if (isNaN (bil1))
+          bil1=0.0;
+        if (isNaN (bil2))
+          bil2=0.0;
+        var hasil = bil1 * bil2;
+        alert ("Hasil Perkalian = " + hasil);
+      }else if (selectOption == "bagi") {
+        if (isNaN (bil1))
+          bil1=0.0;
+        if (isNaN (bil2))
+          bil2=0.0;
+        var hasil = bil1 / bil2;
+        if(isNaN(hasil)){
+          alert("Pembagi tidak boleh angka 0!" );
+        }else {
+          alert ("Hasil Pembagian = " + hasil);
+        }
+      }else{
+        alert("Opsi operasi yang Anda pilih tidak ada");
+      }
+    }
+
+    function radio_box(form)
+    {
+      var ket = "";
+      if (form.wanita.checked == true){
+        ket = "Wanita";
+      }
+      else{
+        ket = "Pria";
+      }
+      alert('Anda adalah seorang ' +ket);
+    }
+
+    function check_box(form)  {
+    var ket1 = "";
+    var ket2 ="";
+      if (form.bola.checked == true){
+        ket1 = "Nonton Bola";
+      }
+      if (form.tv.checked == true){
+        ket2 = " Nonton Tv";
+      }
+      alert('Hobby anda ' +ket1+''+ket2);
+    }
+
+    function tekan()
+    {
+      var ketstr = (document.fform.Ket.value);
+      document.fform.Oket.value = ketstr;
+    }
+  </script>
+  <form name ="fform">
+    <h1><br>Memasukkan Data Lewat Keyboard</h1>
+    <select name="pilihoperasi">
+      <option value="0" selected>Pilih Operasi</option>
+      <option value="jumlah">Penjumlahan</option>
+      <option value="kurang">Pengurangan</option>
+      <option value="kali">Perkalian</option>
+      <option value="bagi">Pembagian</option>
+    </select>
+    <pre>
+      Bilangan Pertama :<input type="text" size="10" name="bilangan1" value="0.0">
+      Bilangan Kedua   :<input type="text" size="10" name="bilangan2" value="0.0">
+      test jk <input type="radio" value="Wanita" name="wanita">Wanita <input type="radio" value="Pria" name="pria">Pria
+      <input type="button" value="CONFIRM" onclick="radio_box(this.form)">
+
+      <input type="checkbox" value="ON" name="bola">Nonton Sepak Bola <input type="checkbox" value="ON" name="tv">Nonton televisi
+      <input type="button" value="CONFIRM" onclick="check_box(this.form)">
+        <div class="">
+          <label>Output Keterangan :</label>
+          <textarea disabled name="Oket" rows="3" cols="30"></textarea>
+          <textarea name="Ket" rows="3" cols="30"></textarea>
+          <input type="button" value="kirim" onclick="tekan()">
+        </div>
+
+    <input TYPE="submit" value="Calculate" onclick="operasi()">
+    <input TYPE="reset" value="Ulang">
+  </form>
+  </body>
+</html>

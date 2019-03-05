@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <script type="text/javascript">
+  function check(){
+    document.getElementById("myCheck").checked=true
+  }
+  function uncheck(){
+    document.getElementById("myCheck").checked=false
+  }
+//   Untuk memanipulasi style atau CSS suatu objek, adalah dengan cara:
+//   objekHTML.style.namaStyle = “style yang diset”
+//   objekHTML.namaStyle = “style yang diset”
+//   document.getElementById(“namaid”).style.namaStyle = “style yang diset”
+//   document.getElementById(“namaid”).namaStyle = “style yang diset”
+  function ubah(){
+    document.getElementById("kotak").style.marginTop = 300;
+    document.getElementById("kotak").style.marginLeft = 300;
+  }
+
+  function ubah1(id){
+    id.value = "background terubah";
+    document.bgColor = "lightblue";
+  }
+  </script>
+</head>
+  <body>
+    <div id="kotak" style="border:2;position:relative;top:50;left:50;background-color:yellow;width:50;height:50"><button type="button" name="button">test</button>
+    </div>
+
+    <form>
+      <input type="checkbox" id="myCheck" />
+      <input type="button" onclick="check()" value="Check Checkbox" />
+      <input type="button" onclick="uncheck()" value="Uncheck Checkbox" />
+
+      <input type="button" onclick="ubah1(this)" value="ubah background">
+      <input type="button" onclick="ubah()" value="ubah">
+    </form>
+
+    <table border=1 width=500 bgcolor="yellow">
+      <tr>
+        <td onmouseover="this.bgColor='red'" onmouseout="this.bgColor='yellow'">Desrizal</td>
+      </tr>
+      <tr>
+        <td onmouseover="this.bgColor='red'" onmouseout="this.bgColor='yellow'">Nurmi Yulita rahmi</td>
+      </tr>
+  </body>
+</html>

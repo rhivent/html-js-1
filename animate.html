@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Animation</title>
+    <script type="text/javascript">
+<!--
+  var imgObj = null;
+  function init(){
+    imgObj = document.getElementById('myImage');
+    imgObj.style.position= 'relative';
+    imgObj.style.left = '0px';
+  }
+  function moveRight(){
+    imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+  }
+
+  function moveLeft(){
+    imgObj.style.left = parseInt(imgObj.style.left) - 10 + 'px';
+  }
+  window.onload =init;
+//-->
+</script>
+  </head>
+  <body>
+    <form>
+      <img id="myImage" src="yaya.png" />
+      <p>Click button below to move the image to right or left</p>
+      <input type="button" value="Left" onclick="moveLeft();" />
+      <input type="button" value="Right" ondblclick="moveRight();" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+        Trying and catching mirip dngn if else, tpi digunakan utk mencari error.
+        The try section has the code that will run if there are no errors.
+        The catch section has the code that will run if there was an error in the try section.
+
+        This is extremly useful! why? coz this allows us to prevent errors from popping up or annoying the viewer on our website, who will probably leave if there is an error.
+
+      */
+
+      // try{
+      //   allert("test try");
+      // }
+      // catch(e) // e for error || e for exception
+      // {
+      //   e = "This error occurred: \n"+ e
+      //   alert(e);
+      // }
+
+      /*
+        alasan knp catch(e) code ran is coz allert() is not function. in this case, we typed alert() wrong. to fix this, we could write function called allert(). coz the function allert() was no defined when it was called, it produced an error. javascript caught this, and said "there was an error, run the other code instead".
+        sort of how if else statement works.
+        Sort of...
+        this is best used with code that could produce an error OR if u r trying to debug and perfect ur code so there r no errors.
+        with try..catch, there are alse exceptions yaitu THROW
+
+        throw is how u create an exception in a try... catch statememt. this isn't as easy as it seems though. This part is NOT like the else if statement at all! throw is used mostly to catch certain errrors and direct the program flow the way you want.
+
+        if the user gets ErrorA then direct program flow down PathZ.
+        if the user gets ErrorB then direct program flow down PathY.
+
+        etc.etc.
+
+        this is example will get the length of the input u type n direct u by alerting with different answers.
+      */
+
+
+      var Name = prompt("Enter your name:");
+
+      try{
+        var leng = Name.length; // length of user input
+        if(leng > 5){
+          throw "Long Name";
+        }else if (leng < 5) {
+          throw "Short Name";
+        }else{
+          throw "5 letter name";
+        }
+      }
+      catch(e){
+        alert(e);
+      }
+
+      /*
+        to sum this up. try ...catch is for trying ur code n running it, if there r no errors. if there are errors, we can use exceptions by Throwing them at the catcher to contror how the error is handled.
+
+        Try:
+          when u test a block of code for errors. It runs if there r no errors.
+        Catch:
+          The code to be executed when the try block has an error. Used for controlling errors.
+        Throw:
+          Defines a custom error name so u can access it in the catch section.
+        Exception:
+          Is an exceptional event. Something that disrupts regular program flow.
+      */
+
+      var d = new Date();
+      document.write(d);
+      //Thu Feb 28 2019 10:57:43 GMT+0700 (Western Indonesia Time)
+
+      document.write(d.getDay()); // 3
+
+      // 0 = sunday dst 6 adalah saturday
+      // computer start counting at 0 and in js, week start form sunday
+      // INGAT DATE START FROM 0 not 1 ...
+      var timezone = d.getTimezoneOffset(); // hasil 4
+
+      /*
+      dikarenakan offset time adalah waktu dari UTC/GMT atau greenwich time dmn indonesia GMT+7 maka (60*7)=420
+      GMT-6 = -(60*(-6)) = 360
+      GMT+4 = -(60*(4)) = -240
+      */
+
+    </script>
+  </body>
+</html>

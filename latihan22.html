@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form name="Tick">
+      <input type="text" size="12" name="Clock">
+    </form>
+
+    <input type="text" id="timer" size="12">
+    <input type="button" value="Start" onClick="count()"><br/>
+    <script type="text/javascript">
+    // setTimeout("expression", delaytime)
+    //
+    // expression bisa berupa kode javascript atau suatu fungsi
+    // delaytime, adalah setiap berapa milidetik suatu expression dieksekusi
+    document.write(parseInt("40 years") + "<br />")
+    if(isNaN(parseInt("He was 40"))){
+      document.write("parseInt('He was 40') adalah Not a Number" + "<br />")
+    }
+    document.write(parseInt("0x10")+ "<br />")
+    document.write(parseInt("10",16)+ "<br />")
+        var c=0
+        document.getElementById("timer").value = ""
+
+        function count(){
+          document.getElementById("timer").value=c
+          c=c+1
+          setTimeout("count()",1000)
+        }
+
+        function show()
+        {
+          var Digital=new Date()
+          // console.log(Digital);
+          var hours=Digital.getHours()
+          var minutes=Digital.getMinutes()
+          var seconds=Digital.getSeconds()
+          var dn="AM"
+            if (hours>12){
+              dn="PM"
+              hours=hours-12
+            }
+          if (hours==0)
+            {hours=12;}
+          if (minutes<=9)
+            {minutes="0"+minutes;}
+          if (seconds<=9){
+            seconds="0"+seconds;}
+          document.Tick.Clock.value=hours+":"+minutes+":"+seconds+" "+dn
+          setTimeout("show()",1000)
+        }
+        show()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <div class="container">
+        <form name="Myform" action="" method="post">
+          <pre>
+            First Name  :<input type="text" name="firstName" id="firstName" />
+            Last Name   :<input type="text" name="lastName" id="lastName" />
+
+            <input type="button" name="" onclick="return validateForm()" value="Submit">
+          </pre>
+        </form>
+      </div>
+      <script type="text/javascript">
+        function validateForm(){
+          var firstName = document.forms["Myform"]["firstName"].value;
+          // console.log(typeof(firstName));
+          if(firstName == null || firstName == ""){
+            alert("First Name is required!");
+            return false;
+          }
+          if(firstName.length <= 3){
+            alert("First name must be more than 3 chars");
+            return false;
+          }else if (typeof(firstName) != "string") {
+            alert("First name must be string or alphabet");
+            return false;
+          }
+        }
+      </script>
+  </body>
+</html>

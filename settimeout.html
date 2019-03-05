@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="demo">
+
+    </div>
+    <script type="text/javascript">
+      /*
+        setInterval and setTimeout are 2 useful function in Js. The problem is, almost everybody get's them mixed up. The difference between them, is how many the code inside the first parameter runs.
+      */
+
+      /*
+      setInterval-diseted, is to set an interval. And interval being something that happens over n over again. so when we want set our code to run more than once at every set time that we specify, we use setInterval.
+
+      So, we want to run our code more than once. We actually want to run our code over and over without end. But not like a loop. Where a loop will try and process all the information at once, setInterval will run the code, wait a specific time, run it again, wait, run, wait,atc,etc.
+
+        setInterval()
+        function,millisecond delay
+        function is the code we want to run
+        millisecond delay is how long we "wait" each interval 1000 = 1 sec.
+
+      */
+      function time(){
+        var d = new Date();
+        var hour = d.getHours();
+        var minute = d.getMinutes();
+        var second = d.getSeconds();
+        var str = hour+":"+minute+":"+second;
+        document.getElementById("demo").innerHTML = str;
+      }
+      var testting = setInterval(function(){time()},1000);
+
+      /*
+        so u can see, this clock updates every second.
+        setInterval isnt very cooperative. I find the best way to make sure ur function works and runs the set time, is to write it the same as the example above.
+
+        alse notice how the first parameter is a function with a function inside of it. That's coz the first parameter is supposed to be a function, literally. So we made a function by writting function() and letting it call our custom time() function.
+
+        putting ur setInterval into a variable not only helps it work properly, it allows us to clear it.
+
+        what if we wanted to remove our interval? we'd use clearInterval(variable). to stop code from running, use it like so:
+
+        clearInterval(initiate);
+
+        where initiate matched the variable that set the inerval.
+
+      */
+
+
+      /*
+        Here's where its importtant to now the difference between setTimeout and setInterval, the one we just covered, runs our code forever. setTimeout will run our once after the specified delay time.
+
+          setTimeout()
+          function,millisecond delay
+          function is our function to run.
+          millisecond delay is the time. 1000 = 1 second.
+
+      */
+      var delayedAlert = setTimeout(function(){alert("Delayed!");},5000);
+
+      /*
+        There is no need try and clear this, since it only runs once and wont ever run again.
+      */
+
+      /*
+        Always put setInterval and setTimeout into a variable. They like that, JS like that, and u'll like it when ur code works. The function parameter, in the event u r on an older brower, should not have any spaces. Newer browers dont seen to have any problem with extra white space. But in case ur sets dont work, check white space (including new lines).
+
+        A good way to remember the difference between setInterval and setTimeout is to simply read the names. An interval means it happens more than once. When u Timeour, u r "delaying" normal code that should be executed right away.
+      */
+    </script>
+  </body>
+</html>

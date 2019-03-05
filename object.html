@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+        You've heard the term "object" often n how to use objects like .length and methos that are used on objects, such as new Date().getDay();. Now we'll learn how to create our own objects. objects, when created, are very similiar in nature to array - where they both hold multiple values and can hold other objects.
+      */
+
+      //first, the code.
+      var wallet = {
+        cards:{
+          visa: 1,
+          mastercard:1,
+          amex:0,
+          debit:1
+        },
+        cash:{
+          Canadian:1500,
+          American:2200.50,
+          Euros:"No Use"
+        },
+        id: "yes"
+      }
+
+      alert(wallet.id);
+
+      /*
+        our object will start with a curly bracket and end in a curly bracket inside of a variable every single time.
+        Inside our object, we leave 3 vales.
+        1. the object name, IE: id from above.
+        2. the object name value. IE: "yes" from id:
+        3. Another object that repeatss #1 n #2.
+
+        here's what it looks like:
+          objectNameA : value,
+        objectNameB:{
+                  objectNameB1:vaue1,
+                  objectNameB2:vaue2,
+                }
+
+        after every object value, we use a comma to prepare for the next object name/ object value. If a value is the last object in your list, do not use a comma.
+
+        after every name, use a full colin.
+        Strings need quotes, numbers do not.
+      */
+      //CALLING AN OBJECT
+      // this is very easy. just look down the tree we made above. Those are just like using variables. ie:
+        // mywallet.cash.Canadian = 1500,
+      // is the same as
+        //  mywallet['cash']['Canadian'] = 1500;
+
+      /*
+        Now u know about arrays, had some practise with objects n method attached to them u can now write ur own objects.
+      */
+    </script>
+  </body>
+</html>

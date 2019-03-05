@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1><a href="javascript:void(0)" onmouseover="dekati()" onclick="test()" onmouseout="jauhi()">asdasd</a></h1>
+    <button type="button" name="button" onclick="sizeBrowser()">test ukuran</button>
+    <form name="formku">
+<textarea disabled name="status"></textarea>
+</form>
+    <script language="JavaScript" type="text/JavaScript">
+    window.onload;
+
+
+// window.location.href = "myPage.htm";
+    function test(){
+      if (confirm('anda Yakin mau melanjutkan?') == false) {
+        window.location.replace("test.html");
+        // document.write('<a href="eventhandler.html">BALIKKKK</a>!');
+      }
+    }
+    function dekati()
+    {
+      document.formku.status.value = "Anda mendekati obyek link";
+    }
+    function jauhi()
+    {
+      document.formku.status.value = "Anda menjauhi obyek link";
+    }
+
+    function sizeBrowser()
+    {
+      var panjang, lebar;
+        panjang = screen.width;
+        lebar   = screen.height;
+        alert("Panjang browser Anda: " + panjang + " px \n Size lebar browser Anda: " + lebar + " px" );
+    }
+    </script>
+  </body>
+</html>

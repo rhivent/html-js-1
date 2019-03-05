@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function lihatisi2(){
+        isi = document.getElementById("teks").value;
+        if(isi == ""){
+          alert("isi tidak ada!");
+        }else{
+          alert(isi);
+        }
+      }
+      function tukarisi2(){
+        document.getElementById("teks").value = "Tulisan Ini diganti";
+      }
+
+      function lihatisi(){
+        isi = document.getElementById("kepala").innerHTML;
+        alert(isi);
+      }
+      function tukarisi(){
+        document.getElementById("kepala").innerHTML = "Tulisan Ini diganti";
+      }
+  </script>
+  </head>
+  <body>
+    <h1 id="kepala">Selamat Datang user!!</h1>
+    <input type="button" onclick="lihatisi()" value="Lihat isi H1">
+    <input type="button" onclick="tukarisi()" value="Tukar isi H1">
+<br>
+    Ketik tulisan di form di bawah:<br>
+      <input type=text name="teks" id="teks">
+      <input type="button" onclick="lihatisi2()" value="Lihat">
+      <input type="button" onclick="tukarisi2()" value="Tukar">
+
+  </body>
+</html>

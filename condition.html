@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+        var animal = 'kitty';
+        var result = (animal == 'kitty') ? 'cute' :'still nice';
+        console.log(result);
+
+        var a = 0;
+        var str = "not a";
+        var b ="";
+        b=a=== 0 ? (a=1,str += ' test') : (a=2);
+        console.log(b+" "+a);
+
+        a === 1 ? alert('hey this is a:'+a):0;
+
+        /*
+          foo ? (bar ? 1:2):3;
+
+          sama dengan seperti ini
+
+          if(foo){
+            if(bar){
+              1
+            }else{
+              2
+            }
+          }else{
+            3
+          }
+
+          di ternary utk break dan return tidak bisa digunakan akan tetapi,
+
+          return (animal === "kitty") ? 'meow' :'woof';
+        */
+
+        function john(){
+          return 'John';
+        }
+
+        function jacob(){
+          return 'Jacob';
+        }
+        // console.log(jacob());
+        switch('Jhon'){
+          case john():
+            console.log('i will run if name === "John"');
+            break;
+          case 'Ja'+'ne'://concatenate the strings together then compare (name == "jane")
+            console.log('I will run if name === "Jane"');
+            break;
+          case john()+ " " +jacob()+" Jingleheimer Schmidt":
+            console.log("His name is equal to name too!");
+            break;
+        }
+
+        var x = "c"
+        switch (x) {
+          case "a":
+          case "b":
+          case "c":
+            console.log("Either a, b, or c was selected.");
+            break;
+          case "d":
+            console.log("Only d was selected.");
+            break;
+          default:
+            console.log("No case was matched.");
+            break; // precautionary break if case order changes
+        }
+
+        const AnimalSays = {
+          dog(){
+            return 'woof';
+          },
+          cat(){
+            return 'meow';
+          },
+          lion(){
+            return 'roar';
+          },
+          default(){
+            return 'moo';
+          }
+        };
+
+        function makeAnimalSpeak(animal){
+          //mattch the animal by type
+          const speak = AnimalSays[animal] || AnimalSays.default;
+          console.log(animal+' says '+speak());
+        }
+
+        makeAnimalSpeak('dog');
+        makeAnimalSpeak('cat');
+        makeAnimalSpeak('lion');
+        makeAnimalSpeak('snake');
+
+        /*
+          The boolean operators || and && will "short circuit" and not evaluate the second parameter if the first is true or false respectively. This can be used to write short conditionals like:
+
+          var x = 10;
+          x == 10 && alert("x is 10");
+          x == 10 || alert("x is not 10");
+        */
+
+        var x = 10;
+        x == 10 && alert("x is 10");
+        x == 10 || alert("x is not 10");
+
+    </script>
+  </body>
+</html>

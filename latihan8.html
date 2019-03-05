@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var data_tanggal = new Date();
+      var data_jam =  data_tanggal.getHours();
+      if (( data_jam >= 0) && (data_jam < 12)){
+        document.write('<marquee width="500"><h3>Selamat Pagi ...! </h3></marquee>');
+      }else if (( data_jam >= 12) && (data_jam < 15)) {
+        document.write('<marquee width="500"><h3>Selamat Siang ...! </h3></marquee>');
+      }else if (( data_jam >= 15) && (data_jam < 19)) {
+        document.write('<marquee width="500"><h3>Selamat Sore ...! </h3></marquee>');
+      }else if (( data_jam >= 19) && (data_jam <= 23)) {
+        document.write('<marquee width="500"><h3>Selamat Malam ...! </h3></marquee>');
+      }else {
+        alert("Data tidak valid");
+      }
+    </script>
+  </body>
+</html>

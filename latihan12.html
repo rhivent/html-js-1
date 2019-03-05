@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <HTML>
+  <BODY onload="tanggal()" onunload="tutup()">
+    <SCRIPT LANGUAGE="JavaScript">
+    // <!-- Hide from browsers that do not understand Javascript
+    function tanggal()
+    {
+      var d = new Date();
+      var y = d.getFullYear();
+      var m = d.getMonth() + 1;
+      var d = d.getDate();
+      var t = d + '/' + m + '/' + y + ' ';
+      defaultStatus = "Anda datang pada tanggal " + t + ".";
+      alert("Selamat Datang Teman \n Silahkan Masuk Ke Websiteku");
+    }
+    function timer()
+    {
+      var d = new Date();
+      var jam = d.getHours();
+      var menit = d.getMinutes();
+      var detik = d.getSeconds();
+      var strwaktu = (jam<10)?"0"+jam:jam;
+      // console.log(strwaktu);
+      strwaktu +=(menit<10)?"0"+menit:" : "+menit;
+      // console.log(strwaktu);
+      strwaktu +=(detik<10)?"0"+detik:" : "+detik;
+      // console.log(strwaktu);
+      document.f.txtwaktu.value=""+strwaktu;
+      setTimeout("timer()",200);
+    }
+    function tutup()
+    {
+      alert("Terimakasih Telah Berkunjung \n Jangan lupa Datang kembali Ya..");
+    }
+    // end hiding -->
+    </SCRIPT>
+      <h1 align="center">Latihan Event OnLoad dan OnUnLoad</h1>
+      <hr width="600" color="black" noshade size="10">
+      <font face="arial">
+      <h3 align="center">SELAMAT DATANG</h3>
+    <CENTER>
+    <form name="f">
+      <h4 align="center">Sekarang Menunjukkan Jam</h4>
+      <input type="Text" size="16" name="txtwaktu">
+      <hr width="600" color="black" noshade size="2">
+    </form>
+      <SCRIPT language="JavaScript">timer()
+      // console.log(timer());
+      </SCRIPT>
+    </center>
+  </BODY>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+      platform ==> the platform that the user is on ie: Win32
+
+      cookieEnabled ==> true/false. True means cookies are enabled.
+
+      onLine ==> true/false. True if browser in online. (this is always true if u r accessing the website)
+
+      userAgent ==> the agent that is sent to the server from ur browser.
+
+      appName ==> the name of ur browser ie: Firefox
+
+      appVersion ==> the version of ur browser
+
+      appCodeName ==> the alias name of ur browser. ie: Mozilla.
+      */
+
+      var NavigatorInfo = "appCodeName: " + navigator.appCodeName +"<br />";
+      NavigatorInfo += "appName(browser Name): " + navigator.appName +"<br />";
+      NavigatorInfo += "appVersion: " + navigator.appVersion +"<br />";
+      NavigatorInfo += "cookie enabled or not: " + navigator.cookieEnabled +"<br />";
+      NavigatorInfo += "platform: " + navigator.platform +"<br />";
+      NavigatorInfo += "user agent: " + navigator.userAgent +"<br />";
+      NavigatorInfo += "online: " + navigator.onLine +"<br />";
+
+      document.write(NavigatorInfo);
+    </script>
+  </body>
+</html>

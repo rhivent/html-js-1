@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+      Regexp/ regular expressions, is not easy thing to learn. And to be honest, most web devs dont know very much Regexp - just coz it can be so confusing. It can alse be very precise n useful. What a regular exps is, is a way define a pattern n seek out matches based on this specific pattern. You can search, search n replace n test ur Regexp. and no, they arent regular at all.
+
+      Defining a new Regexp
+      Like how we defined a new array or new Date();
+      we use the same typed of decalaration.
+
+      var myregex = new RegExp(pattern,modifiers);
+
+      often see this written differently.. more like this:
+
+      // var myregex = /pattern/modifiers;
+
+      a modifiers is a spesific rule the pattern should stick to. Like being case-sensitive or to be global. Modifiers can also be called "flags".
+      */
+      // var myregex = new RegExp(pattern,modifiers);
+      // var myregex = /pattern/modifiers;
+
+      /*
+        [abc] ==> this will be find any chars between the brackets. So it'll look for a,b, or c.
+
+        [^xyz] ==> this will find any character NOT in the brackets. So it'll look for the whole alphabet untill the letter x.
+
+        [0-9] this will find any number from 0-9
+
+        [A-Z] this will find any letter in the alphabet that is uppercase.
+
+        [a-z] this will find any letter in the alphabet that is lowercase.
+
+        [A-z] a mix of the 2 above this. Finds anything from a capital A to lowercase z.
+
+        (box|floor|bed|desk) finds any of the 4 words. The | means OR (Like how || means OR).
+
+        yourWord ==>will look for "yourWord" excactly. case Sensitive!
+
+        Quantifier is how many occurences or where the pattern starts or end, basically.
+
+        g* ==> Matchesa string that has zero or more occurences of g
+
+        t? ==> Matches a string that has zero or one occurences of t. Doesnt stop at 1 like * does.
+
+        z+ ==> Matches a string that has at least one z. So, one or more.
+
+        a{X,} ==> Matches any string that has "a" at least X amount of times in a row.
+
+        b{X,Y} ==> Matches any string that has "b" at least X to Y amount of times. ie b{2,3} matches "bb" and "bbb"
+
+        c{X} Matches any string that has X amount of occurences in a row.
+
+        ^w ==> Matches a string that starts with "w"
+
+        q$ ==> Matches a string that ends with "q"
+      */
+
+      var myExp = /l{2}/g; // g mean global
+      var myExp2 = /Kallob$/g; // g mean global
+      var test = myExp.test("my name is Kallob");
+      var test2 = myExp2.test("my name is Kallob");
+      alert(test); // true karena ada double "ll" di kata Kallob
+      alert(test2); // true krn Kallob ada di akhir string
+
+      /*
+      A metacharacter is a character that has a special meaning n is not used in its literal way \w looks for a word.
+      w is a letter.
+
+      . ==> Looks for a single character except for newlines
+      \w ==> Looks for a word character
+      \W ==> Looks for a non-word character
+      \d ==> Looks for a digit
+      \D ==> Looks for a non-digit character
+      \s ==> Looks for a whitespace character
+      \S ==> Looks for a non-whitespace character
+      \b ==> Looks for a match at the beginning/end of a word
+
+      \B ==> Looks for a match not at the beginning/end of a word
+      \0 ==> Looks for a NULL character
+      \n ==> Looks for a new line character
+      \f ==> Looks for a form feed character
+      \r ==> Looks for a carriage return character
+      \t ==> Looks for a tab character
+      \v ==> Looks for a vertical tab character
+      */
+
+
+      var expresoooo = /Kallob\n/g;
+      var tes3 = expresoooo.test("my name is Kallob\n test");
+      alert(tes3);
+
+      /*
+        Modifiers are how we modify our pattern.
+
+        i = case Insensitive. Or .. "Ignore-case".
+        g = global. It will find all matches and not stop at just one.
+        we add a modifier at the end of a pattern.
+      */
+
+      var expresi2 = /JS/gi;
+      alert(expresi2.test("This is a js class"));
+
+      /*Testing and using
+        .test()
+        if u want to test if ur RegExp works, u can do what the example above has been doing. They use the .test() method.
+
+        yourRegex.test("your string here");
+
+        .test() will give u "true" or "false" answers. True if there is at least one match. False if there is no match.
+
+
+        replace()
+        if u want to replace a pattern with string, u can use the .replace() object.
+
+        string.replace("string or Regex","replacement");
+
+
+        .match()
+        we can also get all the matches into an array by use the .match() method.
+      */
+
+      var expresi3 = /sentence/gi;
+      var str = "Change this sentence";
+      document.write(str.replace(expresi3,"string"));
+
+      var expresi4 = /string/gi;
+      var str2 = "This is my test string string".match(expresi4);
+
+      var matches = str2.length;
+      alert(matches);
+      for(v in str2){
+        alert(str2[v]); // looping alert 2 kali karena ada kata "string string".
+      }
+
+      /*
+        .match() will return all its return all its results into an array. Our array was var str. If there global modifier(g) is not set, then your array will only one value. Thats the first value the pattern runs into.
+
+        var expresi4 = /string/;
+        var str2 = "This is my test string string".match(expresi4);
+
+        var matches = str2.length;
+        alert(matches); // hnaya ada 1 yg di print karena tidak ada g atau global
+
+      */
+      /*
+      There are thousands of different patterns u can make with all of these. This topic to spring hundreds of questions as well. I ask, b4 u ask ur question, google ur question first. There is a very high probability that ur question has been answered else where. This way u dont what to wait for my response. I dont usually request this - this is, however, a very lengthy and questionable topic with tonnes of QnA;s on the net.
+      */
+      
+    </script>
+  </body>
+</html>

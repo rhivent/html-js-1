@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    //split(separator,limit)
+    //if split("") ==> tiap karakter akan di jadikan array
+    //if split() ==> seluruh karakter menjadi 1 array saja
+
+
+    //substr(starting_character,length(optional))
+    //if length tidak ada maka dari awal karakter hingga akhir string akan di ambil datanya.
+      var mystr = "the quick brown fox jumps over the lazy dog";
+      var imsplit = mystr.split(" ");
+      document.write("Here is the array: <br />");
+      for (index in imsplit){
+        document.write(imsplit[index]+", ");
+      }
+
+      document.write("<br />"+mystr.substr(0,7) + " replace another word in the end ");
+    </script>
+  </body>
+</html>

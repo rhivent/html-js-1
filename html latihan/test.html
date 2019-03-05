@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" manifest="index.appcache">
+<head>
+    <meta charset="utf-8" />
+    <title> TEST
+    </title>
+    <style>
+    </style>
+</head>
+<body>
+    <div style="float:left;">Some content on the left.</div>
+    <div style="float:right;">Some content on the right</div>
+    <div role="presentation" style="clear:both;"></div> <!-- Only used to clear floats -->
+
+<div role="alert" aria-live="assertive">Your session will expire in 60 seconds.</div>
+<div role="application">
+<h1>Calculator</h1>
+<input id="num1" type="text"> + <input id="num2" type="text"> =
+<span id="result"></span>
+</div>
+
+<p contenteditable oninput="test()">
+This is an editable paragraph.</p>
+<span contenteditable="false">But not this.</span>
+
+<div tabindex="-1"><button>Some button</button>
+<button tabindex="0" draggable>This button will not be reachable by tab</button></div>
+
+<div tabindex="2">Second</div>
+<div tabindex="1">First</div>
+<p>She wrote <q cite="http://example.com/blog/hello-world">The answer is 42.</q> and everyone
+agreed.</p>
+<p>She wrote <q>The answer is 42.</q> and everyone agreed.</p>
+
+<blockquote>
+<p>The answer is 42.</p>
+</blockquote>
+
+<blockquote cite="http://example.com/blog/hello-world">
+<p>The answer is 42.</p>
+</blockquote>
+
+<blockquote cite="http://example.com/blog/hello-world">
+<p>The answer is 42.</p>
+</blockquote>
+<p>Source: <cite><a href="http://example.com/blog/hello-world" rel="external">Hello
+World</a></cite></p>
+
+<blockquote cite="http://example.com/blog/hello-world">
+<p>The answer is 42.</p>
+<footer>
+<p>Source: <cite><a href="http://example.com/blog/hello-world" rel="external">Hello
+World</a></cite></p>
+</footer>
+</blockquote>
+
+<ul role="tree">
+<li role="treeitem">
+Part 1
+<ul>
+<li>Chapter
+<li>Chapter
+<li>Chapter
+</ul>
+</li>
+<li>
+Part 2
+<ul>
+<li>Chapter
+<li>Chapter
+<li >Chapter
+</ul>
+</li>
+<li>
+Part 3
+<ul>
+<li >Chapter
+<li >Chapter
+<li >Chapter
+</ul>
+</li>
+</ul>
+1</li>
+2</li>
+3</li>
+4</li>
+5</li>
+6</li>
+7</li>
+8</li>
+9</li>
+
+<pre>
+<code>
+x = 42
+if x == 42:
+print "x is ...
+<p>asadas<p>
+</code>
+</pre>
+<p>The <code>&lt;a></code> element creates a hyperlink.</p>
+<pre>
+<code>
+&lt;p>This is a paragraph.&lt;/p>
+</code>
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+<script async>
+window.onload == test;  
+function test(){
+    alert('test');
+}
+</script>
+</body>
+</html>

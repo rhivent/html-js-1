@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var realArray = ['a','b','c'];
+      // var arrayLike = {
+      //   0:'a',
+      //   1:'b',
+      //   2:'c',
+      //   length:3
+      // };
+
+      /*
+        array like objects, which are object
+        representations of arrays with a length property. contoh seperti diatas.
+
+        contoh sederhana array like object r the arguments object in functions and HTMLCollections or NodeList object di returned from methoeds like document.getElementsByTagName('name') or document.querySelectorAll.
+
+        perbedaan dr array n array of object yaitu
+        array like object diturunkan dari Object.prototype instead of Array.prototype. Artinya  Array-likeObjects TIDAK bisa access common Array prototype methods like forEach(),push(),map(),filter(), and slice().
+      */
+
+
+      var parent = document.getElementById('myDropdown');
+      var desiredOption = parent.querySelector('option[value="desired"]');
+      var domList = parent.children;
+      domList.indexOf(desiredOption); // Error! indexOf is not defined.
+      domList.forEach(function() {
+      arguments.map(/* Stuff here */) // Error! map is not defined.
+      }); // Error! forEach is not defined.
+
+      function func() {
+        console.log(arguments);
+      }
+      func(1, 2, 3);
+      // → [1, 2, 3]
+
+
+      // conver Array-likeObjects to arrays
+      // 1. Array.from
+
+      const arrayLike = {
+        0: 'Value 0',
+        1: 'Value 1',
+        length: 2
+      };
+      arrayLike.forEach(value => {/* Do something */}); // Errors
+      const realArray = Array.from(arrayLike);
+      realArray.forEach(value => {/* Do something */}); // Works
+
+      // 2. for...of
+      var realArray = [];
+      for(const element of arrayLike) {
+        realArray.append(element);
+      }
+
+      // 3. Spread operator
+      [...arrayLike]
+
+      // 4. Object.values
+      var realArray = Object.values(arrayLike);
+
+      // 5. Object.keys
+      var realArray = Object
+        .keys(arrayLike)
+        .map((key) => arrayLike[key]);
+
+
+      var arrayLike = {
+        0:"value 0",
+        1:"value 1",
+        length:2
+      };
+
+      var realArray = Array.prototype.slice.call(arrayLike);
+      realArray = [].slice.call(arrayLike);
+
+      realArray.indexOf("value 1"); // this works
+
+      /*
+      You can also use Function.prototype.call to call Array.prototype methods on Array-like objects directly, without converting them:
+      */
+      // Version ≥ 5.1
+      var domList = document.querySelectorAll('#myDropdown option');
+      domList.forEach(function() {
+        // Do stuff
+      }); // Error! forEach is not defined.
+      Array.prototype.forEach.call(domList, function() {
+        // Do stuff
+      }); // Wow! this works
+
+
+      /*
+      You can also use [].method.bind( arrayLikeObject ) to borrow array methods and glom them on to your object:
+      Version ≥ 5.1
+      */
+
+      var arrayLike = {
+        0: 'Value 0',
+        1: 'Value 1',
+        length: 2
+      };
+      arrayLike.forEach(function() {
+        // Do stuff
+      }); // Error! forEach is not defined.
+      [].forEach.bind(arrayLike)(function(val){
+        // Do stuff with val
+      });// wow ! this works
+
+      //Modifying Items During Conversion
+      //In ES6, while using Array.from , we can  specify a map function that returns a mapped value for the new array being created.
+
+      Array.from(domList,element => element.tagName); // create an array of tag Name's
+
+
+    </script>
+  </body>
+</html>
